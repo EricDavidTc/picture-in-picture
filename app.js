@@ -9,7 +9,6 @@ const mobile =
 async function selectMediaStream() {
   if (mobile) {
     vid.setAttribute("src", "jellyfish.mp4");
-    // vid.controls = true;//
     vid.autoplay = true;
   } else {
     try {
