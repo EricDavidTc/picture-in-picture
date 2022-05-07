@@ -12,20 +12,17 @@ async function selectMediaStream() {
     vid.controls = true;
     vid.autoplay = true;
   } else {
-    // try {
-    //   const mediaStream = await navigator.mediaDevices.getDisplayMedia({
-    //     video: true,
-    //   });
-    //   vid.srcObject = mediaStream;
-    //   vid.onloadedmetadata = () => {
-    //     vid.play();
-    //   };
-    // } catch (error) {
-    //   console.log("Error selectMediaStream", error);
-    // }
-
-    vid.setAttribute("src", "jellyfish.mp4");
-    vid.controls = true;
+    try {
+      const mediaStream = await navigator.mediaDevices.getDisplayMedia({
+        video: true,
+      });
+      vid.srcObject = mediaStream;
+      vid.onloadedmetadata = () => {
+        vid.play();
+      };
+    } catch (error) {
+      console.log("Error selectMediaStream", error);
+    }
   }
 }
 //assign switch on/off pictureInPicture to a btn
@@ -41,7 +38,7 @@ async function togglePictureInPicture() {
       msg.hidden = false;
       vid.hidden = true;
       msg.innerHTML = `<h1>${error}</h1>`;
-      btn.disabled = true;
+      btn.disable = true;
     }
   }
 }
