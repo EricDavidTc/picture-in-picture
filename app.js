@@ -10,7 +10,7 @@ async function selectMediaStream() {
   if (mobile) {
     vid.setAttribute("src", "jellyfish.mp4");
     vid.controls = true;
-    vid.play();
+    vid.autoplay = true;
   } else {
     try {
       const mediaStream = await navigator.mediaDevices.getDisplayMedia({
