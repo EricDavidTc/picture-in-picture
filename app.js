@@ -32,7 +32,13 @@ async function togglePictureInPicture() {
       console.log(error);
     });
   } else {
-    await vid.requestPictureInPicture();
+    try {
+      await vid.requestPictureInPicture();
+    } catch (error) {
+      msg.hidden = false;
+      vid.hidden = true;
+      msg.innerHTML += `<h1>Picture in Picture not supported by browser</h1>`;
+    }
   }
 }
 
