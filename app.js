@@ -37,7 +37,7 @@ async function togglePictureInPicture() {
     } catch (error) {
       msg.hidden = false;
       vid.hidden = true;
-      msg.innerHTML += `<h1>Picture in Picture not supported by browser</h1>`;
+      msg.innerHTML += `<h1>${error}</h1>`;
     }
   }
 }
