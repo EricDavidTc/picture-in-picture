@@ -12,17 +12,20 @@ async function selectMediaStream() {
     vid.controls = true;
     vid.autoplay = true;
   } else {
-    try {
-      const mediaStream = await navigator.mediaDevices.getDisplayMedia({
-        video: true,
-      });
-      vid.srcObject = mediaStream;
-      vid.onloadedmetadata = () => {
-        vid.play();
-      };
-    } catch (error) {
-      console.log("Error selectMediaStream", error);
-    }
+    // try {
+    //   const mediaStream = await navigator.mediaDevices.getDisplayMedia({
+    //     video: true,
+    //   });
+    //   vid.srcObject = mediaStream;
+    //   vid.onloadedmetadata = () => {
+    //     vid.play();
+    //   };
+    // } catch (error) {
+    //   console.log("Error selectMediaStream", error);
+    // }
+
+    vid.setAttribute("src", "jellyfish.mp4");
+    vid.controls = true;
   }
 }
 //assign switch on/off pictureInPicture to a btn
@@ -37,7 +40,8 @@ async function togglePictureInPicture() {
     } catch (error) {
       msg.hidden = false;
       vid.hidden = true;
-      msg.innerHTML += `<h1>${error}</h1>`;
+      msg.innerHTML = `<h1>${error}</h1>`;
+      btn.disabled = true;
     }
   }
 }
@@ -48,14 +52,13 @@ function checkPictureInpicture() {
   } else {
     msg.hidden = false;
     vid.hidden = true;
-    msg.innerHTML = `<h1>Picture in Picture not supported</h1>`;
+    msg.innerHTML = `<h1>error</h1>`;
     btn.disable = true;
   }
 }
 
 btn.addEventListener("click", async () => {
   togglePictureInPicture();
-  btn.disable = true;
 });
 
 checkPictureInpicture();
