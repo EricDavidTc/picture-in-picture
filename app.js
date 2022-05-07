@@ -8,7 +8,8 @@ const mobile =
 
 async function selectMediaStream() {
   if (mobile) {
-    vid.setAttribute("src", "./favicon_io/jellyfish.mp4");
+    vid.setAttribute("src", "jellyfish.mp4");
+    vid.controls = true;
     vid.play();
   } else {
     try {
