@@ -36,7 +36,7 @@ async function togglePictureInPicture() {
     } catch (error) {
       msg.hidden = false;
       vid.hidden = true;
-      msg.innerHTML = `<h1>${error}</h1>`;
+      msg.innerHTML = `<h2>Sorry this feature is unsupported on your device</h2>`;
       btn.disable = true;
     }
   }
@@ -48,7 +48,7 @@ function checkPictureInpicture() {
   } else {
     msg.hidden = false;
     vid.hidden = true;
-    msg.innerHTML = `<h1>error</h1>`;
+    msg.innerHTML = `<h2>Sorry this feature is unsupported on your device</h2>`;
     btn.disable = true;
   }
 }
