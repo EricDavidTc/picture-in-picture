@@ -1,16 +1,27 @@
 const vid = document.getElementById("video");
 const btn = document.getElementById("button");
 const msg = document.getElementById("msg");
+const mobile =
+  /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+    navigator.userAgent
+  );
 
 async function selectMediaStream() {
-  try {
-    const mediaStream = await navigator.mediaDevices.getDisplayMedia();
-    vid.srcObject = mediaStream;
-    vid.onloadedmetadata = () => {
-      vid.play();
-    };
-  } catch (error) {
-    console.log("Error selectMediaStream", error);
+  if (mobile) {
+    vid.setAttribute("src", "./favicon_io/jellyfish.mp4");
+    vid.play();
+  } else {
+    try {
+      const mediaStream = await navigator.mediaDevices.getDisplayMedia({
+        video: true,
+      });
+      vid.srcObject = mediaStream;
+      vid.onloadedmetadata = () => {
+        vid.play();
+      };
+    } catch (error) {
+      console.log("Error selectMediaStream", error);
+    }
   }
 }
 //assign switch on/off pictureInPicture to a btn
@@ -30,7 +41,7 @@ function checkPictureInpicture() {
   } else {
     msg.hidden = false;
     vid.hidden = true;
-    msg.innerHTML += `<h1>Picture in Picture not supported</h1>`;
+    msg.innerHTML += `<h1>Picture in Picture not supported by browser</h1>`;
   }
 }
 
