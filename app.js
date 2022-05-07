@@ -48,7 +48,7 @@ function checkPictureInpicture() {
   } else {
     msg.hidden = false;
     vid.hidden = true;
-    msg.innerHTML = `<h1>Picture in Picture not supported by browser</h1>`;
+    msg.innerHTML = `<h1>Picture in Picture not supported</h1>`;
     btn.disable = true;
   }
 }
