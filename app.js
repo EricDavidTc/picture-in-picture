@@ -55,6 +55,7 @@ function checkPictureInpicture() {
 
 btn.addEventListener("click", async () => {
   togglePictureInPicture();
+  btn.disable = true;
 });
 
 checkPictureInpicture();
