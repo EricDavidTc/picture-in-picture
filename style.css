@@ -1,0 +1,92 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(39, 37, 37);
+  font-family: Montserrat, sans-serif;
+}
+
+#button {
+  min-width: 130px;
+  height: 40px;
+  color: #fff;
+  padding: 5px 10px;
+  font-weight: bold;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  outline: none;
+  border-radius: 5px;
+  border: none;
+  background: #3d348b;
+  box-shadow: 0 5px #2c0b8e;
+  font-family: Montserrat, sans-serif;
+}
+#button:hover {
+  box-shadow: 0 3px #2c0b8e;
+  top: 1px;
+}
+#button:active {
+  box-shadow: 0 0 #2c0b8e;
+  top: 5px;
+}
+
+#container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button-container {
+  min-width: 150px;
+  height: 100px;
+  color: #fff;
+  padding: 5px 10px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+  border-radius: 5px;
+  border: none;
+  background: #6c757d;
+  box-shadow: 0 5px #495057;
+  margin-left: 5px;
+}
+
+#msg {
+  color: whitesmoke;
+}
+
+@media (max-width: 768px) {
+  #video {
+    width: 250px;
+    height: 150px;
+  }
+  .button-container {
+    min-width: 80px;
+    height: 40px;
+  }
+  #button {
+    min-width: 50px;
+    height: 30px;
+    font-size: 1rem;
+  }
+  body {
+    display: flex;
+    align-items: flex-start;
+    margin-top: 20px;
+  }
+}
